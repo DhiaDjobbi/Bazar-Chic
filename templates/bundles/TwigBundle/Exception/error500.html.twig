@@ -1,0 +1,40 @@
+
+{% extends 'base.html.twig' %}
+{% block title  %}
+    500 Not found
+	{% endblock %}
+
+{% block body %}
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+	<link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Passion+One:900" rel="stylesheet">
+
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="{{ asset('error/css/style.css') }}" />
+
+
+
+
+</head>
+
+<body>
+
+	<div id="notfound">
+		<div class="notfound">
+			<div class="notfound-404">
+				<h1><i class="fa fa-frown-o"></i></h1>
+			</div>
+			<h2>Error code: 500</h2>
+			<p>sorry something went wrong. please try again later</p>
+			<a href="{{path("homepage")}}">home page</a>
+		</div>
+	</div>
+
+</body>
+{% endblock %}

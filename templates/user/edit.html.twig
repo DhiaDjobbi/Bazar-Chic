@@ -1,0 +1,123 @@
+{% extends 'none.html.twig' %}
+
+{% block title %}Edit User{% endblock %}
+
+{% block body %}
+ 
+<style>
+    small{
+        color: red;
+    }
+</style>
+
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="row">
+                            
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <strong>Edit the </strong> Account
+                                    </div>
+                                    <div class="card-body card-block">
+                             {{ form_start(form, {'attr': {'class': 'login100-form validate-form flex-sb flex-w',novalidate: 'novalidate'}}) }}
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="text-inpsut" class=" form-control-label">Full Name</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                 {{ form_widget(form.name, {'attr': {'class': 'form-control','type': 'text'} }) }}		
+                                                    <small class="help-block form-text">{{ form_errors(form.name) }}</small>
+                                                </div>
+                                            </div>            
+
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="disabled-input" class=" form-control-label">Username</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                 {{ form_widget(form.username, {'attr': {'class': 'form-control','type': 'text' , readonly:"readonly"} }) }}		
+                                             <small class="help-block form-text">{{ form_errors(form.username) }}</small>
+                                                </div>
+                                            </div>
+
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="email-input" class=" form-control-label">Email Input</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                 {{ form_widget(form.email, {'attr': {'class': 'form-control','type': 'text', readonly:"readonly"} }) }}		
+                                                    <small class="help-block form-text">{{ form_errors(form.email) }}</small>
+                                                </div>
+                                            </div>
+        
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="text-inpsut" class=" form-control-label">Phone Number</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                 {{ form_widget(form.phone, {'attr': {'class': 'form-control','type': 'text'} }) }}		
+                                                    <small class="help-block form-text">{{ form_errors(form.phone) }}</small>
+                                                </div>
+                                            </div>     
+        
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="textarea-input" class=" form-control-label">Description</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                 {{ form_widget(form.description, {'attr': {'class': 'form-control','type': 'text', rows : "6"} }) }}		
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="text-inpsut" class=" form-control-label">Facebook Link</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                 {{ form_widget(form.facebook, {'attr': {'class': 'form-control','type': 'text'} }) }}		
+                                                    <small class="help-block form-text">{{ form_errors(form.facebook) }}</small>
+                                                </div>
+                                            </div>  
+                                            
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="text-inpsut" class=" form-control-label">Website Link</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                 {{ form_widget(form.website, {'attr': {'class': 'form-control','type': 'text'} }) }}		
+                                                    <small class="help-block form-text">{{ form_errors(form.website) }}</small>
+                                                </div>
+                                            </div>  
+
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="file-input" class=" form-control-label">Upload a picture</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                {{ form_widget(form.picture, {'attr': {'class': 'form-control-file'} }) }}		
+                                                </div>
+                                            </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <button type="submit" class="btn btn-primary btn-sm">
+                                            <i class="fa fa-dot-circle-o"></i> Submit
+                                        </button>
+                                       <a href="{{ path('user_index') }}"> <button type="reset" class="btn btn-danger btn-sm">
+                                            <i class="fa fa-ban"></i> Reset
+                                        </button></a>
+                                    </div>
+                        {{ form_rest(form) }}
+                        {{ form_end(form) }}
+                                </div>
+                            </div>
+      
+                        </div>
+                    </div>
+                </div>
+            </div>
+			
+{% endblock %}

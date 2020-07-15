@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="icon" type="image/png" href="{{ asset('login1/images/icons/favicon.ico') }}"/>
+
+    <link href="{{ asset('dash/vendor/animsition/animsition.min.css') }}" rel="stylesheet" media="all">
+    <!-- Main CSS-->
+    <link href="{{ asset('dash/css/theme.css') }}" rel="stylesheet" media="all">
+
+    </head>
+
+    <body class="animsition" >
+        {% block body %}{% endblock %}
+
+
+
+
+    <!-- Main JS-->
+    <script src="{{ asset('dash/js/main.js') }}"></script>
+
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

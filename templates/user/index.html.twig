@@ -1,0 +1,84 @@
+{% extends 'none.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+
+{% block body %}
+  
+<style>
+    a {
+    color: black;
+    }
+</style>
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="overview-wrap">
+                                    <h2 class="title-1">User Index</h2>
+                <a href="{{ path('user_new') }}"> <button class="au-btn au-btn-icon au-btn--blue">
+                                        <i class="zmdi zmdi-plus"></i>add an admin</button></a>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="row m-t-30">
+                            <div class="col-md-12">
+                                <div   class="table-responsive m-b-40">
+                                    <table class="table table-borderless table-striped table-data3">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Username</th>
+                                                <th>Email</th>
+                                                <th>Phone</th>
+                                                <th>Role</th>
+                                                <th>Website</th>
+                                                <th>Facebook</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                {% for user in users %}
+                                            <tr>
+                                                <td>{{ user.name }}</td>
+                                                <td>{{ user.username }}</td>
+                                                <td>{{ user.email }}</td>
+                                                <td>{{ user.phone }}</td>
+                                                {% if 'ROLE_ADMIN' in  user.roles()|json_encode %}
+                                                    <td>Admin</td>
+                                                {% else %}
+                                                    <td>User</td>
+                                                {% endif %}
+                                                {% if user.website != null %}
+                                                    <td class="text-center">  <a target="_blank" href="{{user.website}}"> <i class="zmdi zmdi-globe-alt zmdi-hc-2x"></i></a> </td>
+                                                {% else %}
+                                                    <td></td>
+                                                {% endif %}
+                                                {% if user.facebook != null %}
+                                                    <td class="text-center">  <a target="_blank" href="{{user.facebook}}"> <i class="zmdi zmdi-facebook zmdi-hc-2x"></i></a> </td>
+                                                {% else %}
+                                                    <td></td>
+                                                {% endif %}                                               
+                                                <td>
+                                                    <a href="{{ path('user_show', {'id': user.id}) }}">show</a>
+                                                    <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
+                                                </td>
+                                            </tr>
+                                        {% else %}
+                                            <tr>
+                                                <td colspan="12">no records found</td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>								
+                        </div>						
+                    </div>
+                </div>
+            </div>
+{% endblock %}
+

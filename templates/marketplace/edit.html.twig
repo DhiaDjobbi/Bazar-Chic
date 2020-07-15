@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Marketplace{% endblock %}
+
+{% block body %}
+    <h1>Edit Marketplace</h1>
+
+    {{ include('marketplace/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('marketplace_index') }}">back to list</a>
+
+    {{ include('marketplace/_delete_form.html.twig') }}
+{% endblock %}

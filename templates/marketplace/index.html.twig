@@ -1,0 +1,58 @@
+{% extends 'none.html.twig' %}
+
+{% block title %}Marketplace index{% endblock %}
+
+{% block body %}
+
+<div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="overview-wrap">
+                                    <h2 class="title-1">Marketplace Index</h2>
+                <a href="{{ path('marketplace_new') }}"> <button class="au-btn au-btn-icon au-btn--blue">
+                                        <i class="zmdi zmdi-plus"></i>Add new Marketplace</button></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-t-30">
+                            <div class="col-md-12">
+                                <div   class="table-responsive m-b-40">
+                                    <table class="table table-borderless table-striped table-data3">
+                                        <thead>
+                                            <tr>
+                                                <th>Adress</th>
+                                                <th>Working Time</th>
+                                                <th>Owner</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                {% for marketplace in marketplaces %}
+                                            <tr>
+                                                <td>{{ marketplace.adress }}</td>
+                                                <td>{{ marketplace.workingTime }}</td>
+                                                <td>{{ marketplace.getUser().getName() }}</td>
+                                                <td>
+                                                    <a href="{{ path('marketplace_show', {'id': marketplace.id}) }}">show</a>
+                                                    <a href="{{ path('marketplace_edit', {'id': marketplace.id}) }}">edit</a>
+                                                </td>
+                                            </tr>
+                                        {% else %}
+                                            <tr>
+                                                <td colspan="12">no records found</td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>								
+                        </div>						
+                    </div>
+                </div>
+            </div>
+
+
+
+{% endblock %}

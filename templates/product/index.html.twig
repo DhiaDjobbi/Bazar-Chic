@@ -1,0 +1,56 @@
+{% extends 'none.html.twig' %}
+
+{% block title %}Product index{% endblock %}
+
+{% block body %}
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="overview-wrap">
+                                    <h2 class="title-1">Products Index</h2>
+                <a href="{{ path('product_new') }}"> <button class="au-btn au-btn-icon au-btn--blue">
+                                        <i class="zmdi zmdi-plus"></i>Create new product</button></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-t-30">
+                            <div class="col-md-12">
+                                <div   class="table-responsive m-b-40">
+                                    <table class="table table-borderless table-striped table-data3">
+                                        <thead>
+                                            <tr>
+                                                <th>Product Name</th>
+                                                <th>Description</th>
+                                                <th>Category</th>
+                                                <th>Price</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                {% for product in products %}
+                                            <tr>
+                                                <td>{{ product.pname }}</td>
+                                                <td>{{ product.pdescription }}</td>
+                                                <td>{{ product.category }}</td>
+                                                <td>{{ product.price }}</td>
+                                                <td>
+                                                    <a href="{{ path('product_show', {'id': product.id}) }}">show</a>
+                                                    <a href="{{ path('product_edit', {'id': product.id}) }}">edit</a>
+                                                </td>
+                                            </tr>
+                                        {% else %}
+                                            <tr>
+                                                <td colspan="12">no records found</td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>								
+                        </div>						
+                    </div>
+                </div>
+            </div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'none.html.twig' %}
+{% block title %}Category{% endblock %}
+{% block body %}
+
+<!-- MAIN CONTENT-->
+<div class="main-content">
+   <div class="section__content section__content--p30">
+      <div class="container-fluid">
+         <div class="row">
+            <div class="col-md-4">
+               <div class="card">
+                  <div class="card-header bg-secondary">
+                     <strong class="card-title text-light"> Show Category</strong>
+                  </div>
+                  <img style="max height 200px; max-width: 300px;" class="card-img-top" src="{{ asset('category_img/' ~ category.Picture ~ '') }}" alt="Card image cap">
+                  <div class="card-body">
+                     <h4 class="card-title mb-3">{{ category.name }}</h4>
+                     <hr>
+                     <a style=" margin : 5px;" href="{{ path('category_edit', {'id': category.id}) }}" type="button" class="btn btn-secondary btn-sm">
+                     <i style="margin-right: 8px;" class="fa fa-pencil-square-o"></i> edit
+                     </a>
+                     <a style=" margin : 5px;" href="{{ path('category_index') }}" type="button" class="btn btn-warning btn-sm">
+                     <i style="margin-right: 8px;" class="fa fa-arrow-left"></i>Back to list
+                     </a>
+                     {{ include('category/_delete_form.html.twig') }}
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+</div>
+<a href="{{ path('category_index') }}">back to list</a>
+<a href="{{ path('category_edit', {'id': category.id}) }}">edit</a>
+{{ include('category/_delete_form.html.twig') }}
+{% endblock %}
+

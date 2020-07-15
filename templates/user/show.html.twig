@@ -1,0 +1,59 @@
+{% extends 'none.html.twig' %}
+{% block title %}User Show{% endblock %}
+{% block body %}
+ 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- MAIN CONTENT-->
+<div class="main-content">
+   <div class="section__content section__content--p30">
+      <div class="container-fluid">
+         <div class="row">
+
+            <div class="col-md-4">
+               <div class="card">
+                  <div class="card-header">
+                     <i class="fa fa-user"></i>
+                     <strong class="card-title pl-2">Profile Show</strong>
+                  </div>
+                  <div class="card-body">
+                     <div class="mx-auto d-block">
+                        <img class="rounded-circle mx-auto d-block" style="max-height: 150px; max-width: 150px;" src="{{ asset('uploads/' ~ user.Picture ~ '') }}" alt="Card image cap">
+                        <h5 class="text-sm-center mt-2 mb-1">{{ user.name }}</h5>
+                        <div class="location text-sm-center">
+                           <i style="margin: 5px;" class="fa fa-phone"></i> +216 {{ user.phone }}
+                        </div>
+                     </div>
+                     <div class="location text-sm-center">
+                        <i style="margin: 5px;" class="fa fa-envelope"></i> {{ user.email }}
+                     </div>
+                  </div>
+                  <hr>
+                  <div class="card-text text-sm-center">
+                     {% if user.facebook != null %}
+                     <a  target="_blank" href="{{user.getFacebook()}}">
+                     <i style="margin: 8px;" class="fa fa-facebook-official fa-2x" aria-hidden="true"></i>                                                           
+                     </a>                                        
+                     {% endif %}
+                     {% if user.website != null %}
+                     <a  target="_blank" href="{{user.website()}}">
+                     <i style="margin: 8px;" class="fa fa-globe  fa-2x" aria-hidden="true"></i>                                                           
+                     </a>                                        
+                     {% endif %}
+                     <hr>
+                     <a style=" margin : 5px;" href="{{ path('user_edit', {'id': user.id}) }}" type="button" class="btn btn-secondary btn-sm">
+                     <i style="margin-right: 8px;" class="fa fa-pencil-square-o"></i> edit
+                     </a>
+                     <a style=" margin : 5px;" href="{{ path('user_index') }}" type="button" class="btn btn-warning btn-sm">
+                     <i style="margin-right: 8px;" class="fa fa-arrow-left"></i>Back to list
+                     </a>
+                     {{ include('user/_delete_form.html.twig') }}
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+</div>
+{% endblock %}
+

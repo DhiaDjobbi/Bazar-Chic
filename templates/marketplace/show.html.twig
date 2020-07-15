@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Marketplace{% endblock %}
+
+{% block body %}
+    <h1>Marketplace</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ marketplace.id }}</td>
+            </tr>
+            <tr>
+                <th>Adress</th>
+                <td>{{ marketplace.adress }}</td>
+            </tr>
+            <tr>
+                <th>Working_time</th>
+                <td>{{ marketplace.workingTime }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('marketplace_index') }}">back to list</a>
+
+    <a href="{{ path('marketplace_edit', {'id': marketplace.id}) }}">edit</a>
+
+    {{ include('marketplace/_delete_form.html.twig') }}
+{% endblock %}

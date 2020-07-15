@@ -1,0 +1,53 @@
+{% extends 'none.html.twig' %}
+
+{% block title %}Category index{% endblock %}
+
+{% block body %}
+ 
+ <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="overview-wrap">
+                                    <h2 class="title-1">Category Index</h2>
+                <a href="{{ path('category_new') }}"> <button class="au-btn au-btn-icon au-btn--blue">
+                                        <i class="zmdi zmdi-plus"></i>Add a category</button></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-t-30">
+                            <div class="col-md-12">
+                                <div   class="table-responsive table--no-card m-b-30">
+                                    <table class="table table-borderless table-striped table-earning">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                {% for category in categories %}
+                                            <tr>
+                                                <td>{{ category.name }}</td>                 
+                                                <td>
+                                                    <a href="{{ path('category_show', {'id': category.id}) }}">show</a>
+                                                    <a href="{{ path('category_edit', {'id': category.id}) }}">edit</a>
+                                                </td>
+                                            </tr>
+                                        {% else %}
+                                            <tr>
+                                                <td colspan="12">no records found</td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>								
+                        </div>						
+                    </div>
+                </div>
+            </div>
+
+{% endblock %}
+

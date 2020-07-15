@@ -1,0 +1,94 @@
+{% extends 'none.html.twig' %}
+
+{% block title %}New Product{% endblock %}
+
+{% block body %}
+
+<style>
+    small{
+        color: red;
+    }
+</style>
+
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="row">
+                            
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <strong>Add a new</strong> Product
+                                    </div>
+                                    <div class="card-body card-block">
+                             {{ form_start(form, {'attr': {'class': 'login100-form validate-form flex-sb flex-w',novalidate: 'novalidate'}}) }}
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="text-inpsut" class=" form-control-label">Product Name</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                 {{ form_widget(form.pname, {'attr': {'class': 'form-control','type': 'text'} }) }}		
+                                                    <small class="help-block form-text">{{ form_errors(form.pname) }}</small>
+                                                </div>
+                                            </div>            
+
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="textarea-input" class=" form-control-label">Description</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                 {{ form_widget(form.pdescription, {'attr': {'class': 'form-control','type': 'text', rows : "6"} }) }}		
+                                                </div>
+                                            </div>
+
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="text-inpsut" class=" form-control-label">Price</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                 {{ form_widget(form.price, {'attr': {'class': 'form-control','type': 'text'} }) }}	
+                                                    <small class="help-block form-text">{{ form_errors(form.price) }}</small>
+                                                </div>
+                                            </div> 
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="text-inpsut" class=" form-control-label">Product Category</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                {{ form_widget(form.category_id, {'attr': {'class': 'form-control'} }) }}	
+                                                </div>
+                                            </div> 
+
+
+
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="file-input" class=" form-control-label">Upload the product pictures</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                {{ form_widget(form.pictures, {'attr': {'class': 'form-control-file'} }) }}	
+                                    <small class="help-block form-text">{{ form_errors(form.pictures) }}</small>
+                                                </div>
+                                            </div>
+
+
+                                    </div>
+                                    <div class="card-footer">
+                                        <button type="submit" class="btn btn-primary btn-sm">
+                                            <i class="fa fa-dot-circle-o"></i> Submit
+                                        </button>
+                                       <a href="{{ path('product_index') }}"> <button type="reset" class="btn btn-danger btn-sm">
+                                            <i class="fa fa-ban"></i> Go Back
+                                        </button></a>
+                                    </div>
+                        {{ form_rest(form) }}
+                        {{ form_end(form) }}
+                                </div>
+                            </div>
+      
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+{% endblock %}
