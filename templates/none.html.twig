@@ -74,36 +74,35 @@
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
+				
+				{% set page = app.request.get('_route') %}
                     <ul class="list-unstyled navbar__list">
-                        <li class="active has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
-                        </li>
+
                         {% if  is_granted('ROLE_ADMIN') %}
-                            <li>                            
-                                <a href="{{path("user_index")}}">
+                        <li {% if page == 'user_index' %}class="active"{% endif %} >                        
+                                <a href="{{path('user_index')}}">
                                     <i class="fas fa-users "></i>Users</a>
                             </li>
                         {% endif %}
                         {% if  is_granted('ROLE_ADMIN') %}
-                            <li>
+                            <li {% if page == 'product_index' %}class="active"{% endif %}>
                                 <a href="{{path("product_index")}}">
                                     <i class="fa fa-shopping-cart"></i>All Products</a>
                             </li>
                         {% else %}
-                            <li>
+                            <li {% if page == 'product_index' %}class="active"{% endif %}>
                                 <a href="{{path("product_index")}}">
                                     <i class="fas fa-table"></i>My Products</a>
                             </li>                        
                         {% endif %}
 
                         {% if  is_granted('ROLE_ADMIN') %}
-                            <li>
+                            <li {% if page == 'marketplace_index' %}class="active"{% endif %}>
                                 <a href="{{path("marketplace_index")}}">
                                     <i class="fas fa-map-marker-alt"></i>All Marketplaces</a>
                             </li>
                         {% else %}
-                            <li>
+                            <li {% if page == 'marketplace_index' %}class="active"{% endif %}>
                                 <a href="{{path("marketplace_index")}}">
                                     <i class="fas fa-map-marker-alt"></i>My Marketplaces</a>
                             </li>                        
@@ -112,9 +111,10 @@
 
                         {% if  is_granted('ROLE_ADMIN') %}
 
-                        <li>
-                            <a href="{{path("category_index")}}">
-                                <i class="far fa fa-bars"></i>Categories</a>
+                            <li {% if page == 'category_index' %}class="active"{% endif %}>
+                            <a href="{{path('category_index')}}">
+                                <i class="far fa fa-bars"></i>Categories
+							</a>
                         </li>
                         {% endif %}
 
