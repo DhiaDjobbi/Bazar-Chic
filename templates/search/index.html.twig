@@ -1,8 +1,8 @@
 {{ form_start(sform, {'attr': {'class': 'form-header',novalidate: 'novalidate'}}) }}
 
-    {{ form_widget(sform.name, {'attr': {'class': 'au-input',"placeholder": "Search by Product name"} }) }}		
-    {{ form_widget(sform.minPrice, {'attr': {'class': 'au-input',"placeholder": "Min Price", width: '50px'} }) }}
-    {{ form_widget(sform.maxPrice, {'attr': {'class': 'au-input',"placeholder": "Max Price"} }) }}	
+    {{ form_widget(sform.name, {'attr': {'class': 'au-input',"placeholder": "Search by Product name",size:"13"} }) }}		
+    {{ form_widget(sform.minPrice, {'attr': {'class': 'au-input',"placeholder": "Min Price",size:"3"} }) }}		
+    {{ form_widget(sform.maxPrice, {'attr': {'class': 'au-input',"placeholder": "Max Price",size:"3"} }) }}		
     {{ form_widget(sform.category, {'attr': {'class': 'au-input '} }) }}	      	
     <button style="margin-left: 10px;" class="au-btn--submit" type="submit">
         <i class="zmdi zmdi-search"></i>
