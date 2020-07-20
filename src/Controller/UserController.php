@@ -116,7 +116,13 @@ class UserController extends AbstractController
             }
 
             $this->getDoctrine()->getManager()->flush();
-            return $this->redirectToRoute('dashboard');
+            if ($this->isGranted('ROLE_ADMIN'))
+            {
+                return $this->redirectToRoute('user_index');
+            }
+            else{
+                return $this->redirectToRoute('product_index');
+            }
         }
 
         return $this->render('user/edit.html.twig', [

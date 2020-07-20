@@ -30,7 +30,7 @@ security:
                 login_path: user_login
                 check_path: user_login
                 always_use_default_target_path: true
-                default_target_path: dashboard
+                default_target_path: product_index
 
             logout:
                 path:   user_logout
