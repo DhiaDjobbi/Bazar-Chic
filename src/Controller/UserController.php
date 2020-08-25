@@ -80,6 +80,7 @@ class UserController extends AbstractController
     }
 
     /**
+     * @IsGranted("ROLE_USER")
      * @Route("/{id}", name="user_show", methods={"GET"})
      */
     public function show(User $user): Response
@@ -132,6 +133,7 @@ class UserController extends AbstractController
     }
 
     /**
+     * @IsGranted("ROLE_USER")
      * @Route("/{id}", name="user_delete", methods={"DELETE"})
      */
     public function delete(Request $request, User $user): Response

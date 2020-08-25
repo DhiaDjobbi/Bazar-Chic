@@ -37,6 +37,7 @@ class AuthenticationController extends AbstractController
     { }
 
     /**
+     * @IsGranted("ROLE_ADMIN")
      * @Route("/register", name="user_register", methods={"GET","POST"})
      */
     public function register(Request $request,UserPasswordEncoderInterface $encoder): Response

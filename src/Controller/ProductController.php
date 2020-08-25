@@ -88,6 +88,7 @@ class ProductController extends AbstractController
     }
 
     /**
+     * @IsGranted("ROLE_USER")
      * @Route("/{id}", name="product_show", methods={"GET"})
      */
     public function show(Product $product): Response
@@ -137,6 +138,7 @@ class ProductController extends AbstractController
     }
 
     /**
+     * @IsGranted("ROLE_USER")
      * @Route("/{id}", name="product_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Product $product): Response
